@@ -1,0 +1,3165 @@
+<!DOCTYPE html>
+<html lang="th">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Portfolio — กวินทิพย์ บุญมั่ง</title>
+
+  <!-- =====================================================
+       GOOGLE FONTS
+  ====================================================== -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Itim&family=Kanit:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- =====================================================
+       TAILWIND CSS
+  ====================================================== -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+
+          colors: {
+            navy: "#172554",
+            cobalt: "#2563EB",
+            coral: "#F97316",
+            mint: "#6EE7B7",
+            lavender: "#C4B5FD",
+            cream: "#FFFDF5",
+            ink: "#1E293B"
+          },
+
+          fontFamily: {
+            kanit: ["Kanit", "sans-serif"],
+            itim: ["Itim", "cursive"]
+          }
+
+        }
+      }
+    }
+  </script>
+
+
+  <!-- =====================================================
+       CUSTOM CSS
+  ====================================================== -->
+  <style>
+
+    :root {
+      --navy: #172554;
+      --blue: #2563eb;
+      --coral: #f97316;
+      --mint: #6ee7b7;
+      --lavender: #c4b5fd;
+      --cream: #fffdf5;
+      --ink: #1e293b;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Kanit", sans-serif;
+      overflow-x: hidden;
+    }
+
+    /* =====================================================
+       PAPER BACKGROUND
+    ====================================================== */
+
+    .paper-bg {
+      background-color: var(--cream);
+
+      background-image:
+        linear-gradient(
+          rgba(37, 99, 235, 0.035) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(37, 99, 235, 0.035) 1px,
+          transparent 1px
+        );
+
+      background-size: 28px 28px;
+    }
+
+
+    /* =====================================================
+       NAVBAR
+    ====================================================== */
+
+    .navbar {
+      background: rgba(255, 253, 245, .9);
+      backdrop-filter: blur(18px);
+      border-bottom: 1px solid #dbe4ff;
+    }
+
+
+    /* =====================================================
+       ART CARDS
+    ====================================================== */
+
+    .art-card {
+      background: white;
+      border: 2px solid var(--navy);
+      border-radius: 28px;
+
+      box-shadow:
+        7px 7px 0 var(--navy);
+
+      transition:
+        .3s ease;
+    }
+
+    .art-card:hover {
+      transform:
+        translate(-5px, -6px);
+
+      box-shadow:
+        11px 11px 0 var(--coral);
+    }
+
+
+    /* =====================================================
+       STICKER
+    ====================================================== */
+
+    .sticker {
+      display: inline-block;
+
+      padding: 7px 15px;
+
+      border: 2px solid var(--navy);
+
+      border-radius: 999px;
+
+      font-family: "Itim", cursive;
+
+      box-shadow:
+        3px 3px 0 var(--navy);
+
+      white-space: nowrap;
+    }
+
+
+    /* =====================================================
+       SECTION TITLE
+    ====================================================== */
+
+    .section-title {
+      font-family: "Itim", cursive;
+
+      font-size: clamp(
+        2.8rem,
+        7vw,
+        5rem
+      );
+
+      line-height: .95;
+
+      color: var(--navy);
+    }
+
+
+    /* =====================================================
+       HAND DRAWN LINE
+    ====================================================== */
+
+    .hand-line {
+      width: 150px;
+      height: 12px;
+
+      border-bottom:
+        4px solid var(--coral);
+
+      border-radius: 50%;
+    }
+
+
+    /* =====================================================
+       PHOTO FRAME
+    ====================================================== */
+
+    .photo-frame {
+      background: white;
+
+      padding: 12px;
+
+      border: 2px solid var(--navy);
+
+      border-radius: 30px;
+
+      box-shadow:
+        10px 10px 0 var(--navy);
+    }
+
+
+    /* =====================================================
+       PROJECT IMAGE
+    ====================================================== */
+
+    .project-image {
+      width: 100%;
+      height: 210px;
+
+      object-fit: cover;
+
+      border-radius: 20px;
+
+      border: 2px solid var(--navy);
+    }
+
+
+    /* =====================================================
+       FLOATING DECORATION
+    ====================================================== */
+
+    .floating {
+      animation:
+        float 4s ease-in-out infinite;
+    }
+
+    @keyframes float {
+
+      0%, 100% {
+        transform:
+          translateY(0)
+          rotate(0);
+      }
+
+      50% {
+        transform:
+          translateY(-12px)
+          rotate(4deg);
+      }
+
+    }
+
+
+    /* =====================================================
+       ROTATIONS
+    ====================================================== */
+
+    .rotate-a {
+      transform: rotate(-1.5deg);
+    }
+
+    .rotate-b {
+      transform: rotate(1.5deg);
+    }
+
+
+    /* =====================================================
+       NUMBER
+    ====================================================== */
+
+    .section-number {
+      font-family: "Itim", cursive;
+
+      font-size: 1rem;
+
+      letter-spacing: .12em;
+
+      color: var(--coral);
+    }
+
+
+    /* =====================================================
+       SKILL BAR
+    ====================================================== */
+
+    .skill-track {
+      height: 13px;
+
+      background: #e2e8f0;
+
+      border: 2px solid var(--navy);
+
+      border-radius: 99px;
+
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+
+      border-radius: 99px;
+    }
+
+
+    /* =====================================================
+       MOBILE MENU
+    ====================================================== */
+
+    #mobileMenu {
+      display: none;
+    }
+
+    #mobileMenu.show {
+      display: block;
+    }
+
+
+    /* =====================================================
+       DECORATIVE GRID
+    ====================================================== */
+
+    .blueprint-grid {
+      background-image:
+        linear-gradient(
+          rgba(255,255,255,.12) 1px,
+          transparent 1px
+        ),
+        linear-gradient(
+          90deg,
+          rgba(255,255,255,.12) 1px,
+          transparent 1px
+        );
+
+      background-size: 25px 25px;
+    }
+
+
+    /* =====================================================
+       MARQUEE
+    ====================================================== */
+
+    .marquee {
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .marquee-inner {
+      display: inline-block;
+
+      animation:
+        marquee 20s linear infinite;
+    }
+
+    @keyframes marquee {
+
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+
+    }
+
+
+    /* =====================================================
+       RESPONSIVE
+    ====================================================== */
+
+    @media (max-width: 768px) {
+
+      .art-card {
+        box-shadow:
+          5px 5px 0 var(--navy);
+      }
+
+      .photo-frame {
+        box-shadow:
+          6px 6px 0 var(--navy);
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body class="paper-bg">
+
+
+<!-- =====================================================
+     NAVIGATION
+====================================================== -->
+
+<header class="navbar fixed top-0 left-0 w-full z-50">
+
+  <nav
+    class="max-w-7xl mx-auto
+           px-5 md:px-8
+           py-4
+           flex items-center justify-between">
+
+    <!-- Logo -->
+
+    <a
+      href="#home"
+      class="flex items-center gap-3">
+
+      <div
+        class="w-11 h-11
+               bg-navy
+               text-white
+               rounded-xl
+               flex items-center justify-center
+               font-itim
+               text-2xl
+               rotate-[-6deg]">
+
+        K
+
+      </div>
+
+      <div class="hidden sm:block">
+
+        <p class="font-bold text-navy">
+          Kawintip
+        </p>
+
+        <p class="text-xs text-slate-500">
+          Portfolio 2026
+        </p>
+
+      </div>
+
+    </a>
+
+
+    <!-- Desktop Navigation -->
+
+    <div
+      class="hidden lg:flex
+             items-center
+             gap-7
+             text-sm
+             font-medium">
+
+      <a href="#about" class="hover:text-cobalt transition">
+        About
+      </a>
+
+      <a href="#education" class="hover:text-cobalt transition">
+        Education
+      </a>
+
+      <a href="#skills" class="hover:text-cobalt transition">
+        Skills
+      </a>
+
+      <a href="#projects" class="hover:text-cobalt transition">
+        Projects
+      </a>
+
+      <a href="#awards" class="hover:text-cobalt transition">
+        Awards
+      </a>
+
+      <a
+        href="#goal"
+        class="bg-coral
+               text-white
+               px-5 py-2
+               rounded-full
+               border-2
+               border-navy
+               shadow-[3px_3px_0_#172554]">
+
+        My Goal →
+
+      </a>
+
+    </div>
+
+
+    <!-- Mobile Button -->
+
+    <button
+      id="menuBtn"
+      class="lg:hidden
+             w-11 h-11
+             rounded-xl
+             border-2
+             border-navy
+             bg-white
+             text-xl">
+
+      ☰
+
+    </button>
+
+  </nav>
+
+
+  <!-- Mobile Navigation -->
+
+  <div
+    id="mobileMenu"
+    class="lg:hidden px-5 pb-5">
+
+    <div
+      class="bg-white
+             border-2
+             border-navy
+             rounded-2xl
+             p-5
+             shadow-[5px_5px_0_#172554]
+             flex flex-col gap-4">
+
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#awards">Awards</a>
+      <a href="#goal">My Goal</a>
+
+    </div>
+
+  </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     HERO
+====================================================== -->
+
+<section
+  id="home"
+  class="min-h-screen
+         pt-32 pb-24
+         relative
+         overflow-hidden">
+
+  <!-- Decorative Shapes -->
+
+  <div
+    class="absolute
+           -top-40
+           -left-40
+           w-[500px]
+           h-[500px]
+           bg-mint
+           rounded-full
+           opacity-60">
+  </div>
+
+
+  <div
+    class="absolute
+           top-40
+           -right-40
+           w-[450px]
+           h-[450px]
+           bg-lavender
+           rounded-full
+           opacity-60">
+  </div>
+
+
+  <div
+    class="absolute
+           bottom-0
+           left-1/3
+           w-52
+           h-52
+           bg-orange-200
+           rounded-full
+           opacity-50">
+  </div>
+
+
+  <!-- Decorative Text -->
+
+  <div
+    class="absolute
+           top-36
+           left-5
+           lg:left-16
+           font-itim
+           text-5xl
+           text-coral
+           floating
+           hidden md:block">
+
+    ✦
+
+  </div>
+
+
+  <div
+    class="absolute
+           top-48
+           right-10
+           font-itim
+           text-4xl
+           text-cobalt
+           floating
+           hidden md:block">
+
+    +
+
+  </div>
+
+
+  <div
+    class="max-w-7xl
+           mx-auto
+           px-5 md:px-8
+           relative z-10">
+
+
+    <div
+      class="grid
+             lg:grid-cols-[1.05fr_.95fr]
+             gap-16
+             items-center">
+
+
+      <!-- =============================================
+           HERO TEXT
+      ============================================== -->
+
+      <div>
+
+        <div
+          class="flex flex-wrap gap-3
+                 items-center mb-7">
+
+          <span
+            class="sticker
+                   bg-navy
+                   text-white">
+
+            PORTFOLIO 2026
+
+          </span>
+
+          <span
+            class="font-itim
+                   text-lg
+                   text-coral">
+
+            hello! ♡
+
+          </span>
+
+        </div>
+
+
+        <p
+          class="font-itim
+                 text-3xl
+                 text-cobalt">
+
+          เด็กหญิง
+
+        </p>
+
+
+        <h1
+          class="text-6xl
+                 md:text-8xl
+                 font-bold
+                 leading-[.95]
+                 tracking-tight">
+
+          <span class="text-navy">
+            กวินทิพย์
+          </span>
+
+          <br>
+
+          <span
+            class="text-coral
+                   relative">
+
+            บุญมั่ง
+
+            <span
+              class="absolute
+                     -bottom-3
+                     left-1
+                     text-xl
+                     text-navy
+                     font-itim">
+
+              keep growing ✎
+
+            </span>
+
+          </span>
+
+        </h1>
+
+
+        <div class="hand-line mt-7"></div>
+
+
+        <div class="mt-8">
+
+          <span
+            class="font-itim
+                   text-3xl
+                   text-purple-700">
+
+            Future Scientist
+
+          </span>
+
+          <span
+            class="text-slate-400
+                   mx-2">
+
+            /
+
+          </span>
+
+          <span class="font-medium">
+
+            ม.4 MWIT • โครงการ วมว.
+
+          </span>
+
+        </div>
+
+
+        <p
+          class="max-w-xl
+                 text-slate-600
+                 leading-8
+                 mt-6">
+
+          พอร์ตโฟลิโอที่รวบรวมตัวตน
+          ความสนใจ ทักษะ กิจกรรม
+          และผลงานของฉัน
+          ในช่วงการเรียนระดับมัธยมศึกษาตอนต้น
+          พร้อมก้าวต่อไปสู่การเรียนรู้
+          ที่ท้าทายและเข้มข้นยิ่งขึ้น
+
+        </p>
+
+
+        <!-- Hero Tags -->
+
+        <div
+          class="flex flex-wrap
+                 gap-3
+                 mt-7">
+
+          <span class="sticker bg-mint">
+            🔬 Science
+          </span>
+
+          <span class="sticker bg-lavender">
+            🧮 Math
+          </span>
+
+          <span class="sticker bg-orange-200">
+            💡 Innovation
+          </span>
+
+        </div>
+
+
+        <!-- Buttons -->
+
+        <div
+          class="flex flex-wrap
+                 gap-4
+                 mt-9">
+
+          <a
+            href="#projects"
+            class="bg-cobalt
+                   text-white
+                   px-7 py-3
+                   rounded-full
+                   border-2
+                   border-navy
+                   shadow-[4px_4px_0_#172554]
+                   hover:translate-y-1
+                   transition">
+
+            Explore My Work →
+
+          </a>
+
+
+          <a
+            href="#about"
+            class="bg-white
+                   px-7 py-3
+                   rounded-full
+                   border-2
+                   border-navy
+                   hover:bg-mint
+                   transition">
+
+            About Me
+
+          </a>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =============================================
+           HERO VISUAL
+      ============================================== -->
+
+      <div
+        class="relative
+               flex
+               justify-center">
+
+
+        <!-- Number -->
+
+        <div
+          class="absolute
+                 -top-10
+                 left-4
+                 font-itim
+                 text-8xl
+                 text-blue-100
+                 select-none">
+
+          01
+
+        </div>
+
+
+        <!-- Main Photo -->
+
+        <div
+          class="photo-frame
+                 w-full
+                 max-w-md
+                 rotate-a
+                 relative
+                 z-10">
+
+          <img
+            src="https://placehold.co/650x780/e0e7ff/172554?text=YOUR+PHOTO"
+            alt="รูปโปรไฟล์ของกวินทิพย์"
+            class="w-full
+                   aspect-[4/5]
+                   object-cover
+                   rounded-2xl">
+
+
+          <div
+            class="flex
+                   items-center
+                   justify-between
+                   px-3
+                   py-4">
+
+            <div>
+
+              <p class="font-itim text-2xl">
+                curious mind.
+              </p>
+
+              <p class="text-xs text-slate-500">
+                student • learner • dreamer
+              </p>
+
+            </div>
+
+
+            <div
+              class="w-10 h-10
+                     bg-coral
+                     rounded-full
+                     flex items-center justify-center
+                     text-white
+                     border-2
+                     border-navy">
+
+              ✦
+
+            </div>
+
+          </div>
+
+        </div>
+
+
+        <!-- Sticker 1 -->
+
+        <div
+          class="absolute
+                 -top-4
+                 -right-3
+                 z-20
+                 sticker
+                 bg-coral
+                 text-white
+                 rotate-6
+                 floating">
+
+          DREAM BIG!
+
+        </div>
+
+
+        <!-- Sticker 2 -->
+
+        <div
+          class="absolute
+                 bottom-5
+                 -left-5
+                 z-20
+                 sticker
+                 bg-mint
+                 -rotate-6">
+
+          ✎ keep learning
+
+        </div>
+
+
+        <!-- Decorative Circle -->
+
+        <div
+          class="absolute
+                 -bottom-10
+                 right-5
+                 w-28 h-28
+                 border-[3px]
+                 border-dashed
+                 border-cobalt
+                 rounded-full">
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MARQUEE
+====================================================== -->
+
+<div
+  class="marquee
+         bg-navy
+         text-white
+         py-4
+         border-y-2
+         border-navy">
+
+  <div class="marquee-inner">
+
+    <span class="font-itim text-xl">
+
+      SCIENCE ✦ MATHEMATICS ✦ CREATIVITY ✦
+      RESEARCH ✦ DISCOVERY ✦ GROWTH ✦
+      SCIENCE ✦ MATHEMATICS ✦ CREATIVITY ✦
+      RESEARCH ✦ DISCOVERY ✦ GROWTH ✦
+
+    </span>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================================
+     ABOUT
+====================================================== -->
+
+<section id="about" class="py-28">
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+
+    <div class="flex flex-col md:flex-row
+                md:items-end
+                justify-between
+                gap-5 mb-16">
+
+      <div>
+
+        <p class="section-number">
+          01 / ABOUT ME
+        </p>
+
+        <h2 class="section-title mt-3">
+          Who I Am
+        </h2>
+
+      </div>
+
+      <p
+        class="max-w-md
+               text-slate-500
+               leading-7">
+
+        คนหนึ่งคนอาจมีหลายความสนใจ
+        และนี่คือเรื่องราวเล็ก ๆ
+        ของฉันที่อยากให้คุณได้รู้จัก
+
+      </p>
+
+    </div>
+
+
+    <div
+      class="grid
+             lg:grid-cols-5
+             gap-8
+             items-stretch">
+
+
+      <!-- Left -->
+
+      <div
+        class="lg:col-span-2
+               art-card
+               p-5
+               bg-lavender
+               rotate-a">
+
+        <img
+          src="https://placehold.co/700x650/f5f3ff/172554?text=ABOUT+ME"
+          alt="About Me"
+          class="w-full
+                 h-full
+                 min-h-[350px]
+                 object-cover
+                 rounded-2xl
+                 border-2
+                 border-navy">
+
+      </div>
+
+
+      <!-- Right -->
+
+      <div
+        class="lg:col-span-3
+               grid
+               md:grid-cols-2
+               gap-6">
+
+
+        <div
+          class="art-card
+                 p-7
+                 bg-white">
+
+          <div class="text-4xl mb-4">
+            🌱
+          </div>
+
+          <h3 class="font-itim text-3xl">
+            A Curious Learner
+          </h3>
+
+          <p
+            class="text-slate-500
+                   leading-7
+                   mt-3">
+
+            หนูชอบตั้งคำถาม
+            และสนุกกับการค้นหาคำตอบ
+            โดยเฉพาะเรื่องที่เกี่ยวข้องกับ
+            วิทยาศาสตร์และสิ่งรอบตัว
+
+          </p>
+
+        </div>
+
+
+        <div
+          class="art-card
+                 p-7
+                 bg-mint
+                 rotate-b">
+
+          <div class="text-4xl mb-4">
+            💡
+          </div>
+
+          <h3 class="font-itim text-3xl">
+            Creative Thinker
+          </h3>
+
+          <p
+            class="text-slate-600
+                   leading-7
+                   mt-3">
+
+            ชอบคิดวิธีใหม่ ๆ
+            ในการแก้ปัญหา
+            และชอบนำเสนอความคิด
+            ในรูปแบบที่สร้างสรรค์
+
+          </p>
+
+        </div>
+
+
+        <div
+          class="art-card
+                 p-7
+                 bg-orange-50">
+
+          <div class="text-4xl mb-4">
+            🤝
+          </div>
+
+          <h3 class="font-itim text-3xl">
+            Team Player
+          </h3>
+
+          <p
+            class="text-slate-500
+                   leading-7
+                   mt-3">
+
+            เชื่อว่าการทำงานร่วมกับผู้อื่น
+            ทำให้เราได้เห็นมุมมองใหม่ ๆ
+            และสามารถสร้างผลงานที่ดีขึ้น
+
+          </p>
+
+        </div>
+
+
+        <div
+          class="art-card
+                 p-7
+                 bg-navy
+                 text-white
+                 rotate-a">
+
+          <div class="text-4xl mb-4">
+            🚀
+          </div>
+
+          <h3 class="font-itim text-3xl">
+            Ready to Grow
+          </h3>
+
+          <p
+            class="text-blue-100
+                   leading-7
+                   mt-3">
+
+            พร้อมเปิดรับความรู้ใหม่
+            และพัฒนาตัวเอง
+            เพื่อก้าวไปสู่เป้าหมาย
+            ในระดับมัธยมศึกษาตอนปลาย
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EDUCATION
+====================================================== -->
+
+<section
+  id="education"
+  class="py-28
+         bg-[#EEF4FF]">
+
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+
+    <div class="text-center mb-16">
+
+      <p class="section-number">
+        02 / EDUCATION
+      </p>
+
+      <h2 class="section-title mt-3">
+        My Journey
+      </h2>
+
+      <p class="text-slate-500 mt-4">
+        เส้นทางการเรียนรู้ที่ผ่านมา
+      </p>
+
+    </div>
+
+
+    <div
+      class="relative
+             max-w-4xl
+             mx-auto">
+
+
+      <!-- Line -->
+
+      <div
+        class="absolute
+               left-5 md:left-1/2
+               top-0 bottom-0
+               w-[3px]
+               bg-cobalt
+               md:-translate-x-1/2">
+      </div>
+
+
+      <!-- Item 1 -->
+
+      <div
+        class="relative
+               flex
+               md:justify-start
+               mb-14">
+
+
+        <div
+          class="w-full md:w-[47%]
+                 ml-12 md:ml-0">
+
+          <div
+            class="art-card
+                   p-7
+                   bg-white">
+
+            <span class="text-cobalt font-medium">
+              EARLIER YEARS
+            </span>
+
+            <h3
+              class="font-itim
+                     text-3xl
+                     mt-2">
+
+              จุดเริ่มต้นของการตั้งคำถาม
+
+            </h3>
+
+            <p
+              class="text-slate-500
+                     leading-7
+                     mt-3">
+
+              เริ่มสนใจสิ่งรอบตัว
+              ชอบสังเกต ทดลอง
+              และค้นหาว่าเหตุใดสิ่งต่าง ๆ
+              จึงเกิดขึ้น
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="absolute
+                 left-0 md:left-1/2
+                 w-11 h-11
+                 rounded-full
+                 bg-coral
+                 border-4
+                 border-white
+                 shadow-md
+                 md:-translate-x-1/2
+                 flex items-center justify-center">
+
+          ✦
+
+        </div>
+
+      </div>
+
+
+      <!-- Item 2 -->
+
+      <div
+        class="relative
+               flex
+               md:justify-end
+               mb-14">
+
+
+        <div
+          class="w-full md:w-[47%]
+                 ml-12 md:ml-0">
+
+          <div
+            class="art-card
+                   p-7
+                   bg-mint
+                   rotate-b">
+
+            <span class="text-navy font-medium">
+              JUNIOR HIGH
+            </span>
+
+            <h3
+              class="font-itim
+                     text-3xl
+                     mt-2">
+
+              เริ่มค้นหาความสนใจ
+
+            </h3>
+
+            <p
+              class="text-slate-600
+                     leading-7
+                     mt-3">
+
+              ได้เรียนรู้วิทยาศาสตร์
+              คณิตศาสตร์ และเทคโนโลยี
+              พร้อมเริ่มสนใจกิจกรรม
+              และโครงงานมากขึ้น
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="absolute
+                 left-0 md:left-1/2
+                 w-11 h-11
+                 rounded-full
+                 bg-cobalt
+                 border-4
+                 border-white
+                 shadow-md
+                 md:-translate-x-1/2
+                 flex items-center justify-center
+                 text-white">
+
+          ✓
+
+        </div>
+
+      </div>
+
+
+      <!-- Item 3 -->
+
+      <div
+        class="relative
+               flex
+               md:justify-start">
+
+
+        <div
+          class="w-full md:w-[47%]
+                 ml-12 md:ml-0">
+
+          <div
+            class="art-card
+                   p-7
+                   bg-navy
+                   text-white
+                   rotate-a">
+
+            <span class="text-coral font-medium">
+              NEXT CHAPTER
+            </span>
+
+            <h3
+              class="font-itim
+                     text-3xl
+                     mt-2">
+
+              ม.4 MWIT / โครงการ วมว.
+
+            </h3>
+
+            <p
+              class="text-blue-100
+                     leading-7
+                     mt-3">
+
+              เป้าหมายต่อไปคือการได้เรียนรู้
+              ในสภาพแวดล้อมที่ท้าทาย
+              และเปิดโอกาสให้ได้พัฒนาศักยภาพ
+              อย่างเต็มที่
+
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="absolute
+                 left-0 md:left-1/2
+                 w-11 h-11
+                 rounded-full
+                 bg-mint
+                 border-4
+                 border-white
+                 shadow-md
+                 md:-translate-x-1/2
+                 flex items-center justify-center">
+
+          ★
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SKILLS
+====================================================== -->
+
+<section id="skills" class="py-28">
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+
+    <div class="mb-16">
+
+      <p class="section-number">
+        03 / SKILLS
+      </p>
+
+      <div
+        class="flex flex-col lg:flex-row
+               lg:items-end
+               justify-between
+               gap-5">
+
+        <h2 class="section-title mt-3">
+          Skills & Strengths
+        </h2>
+
+        <p
+          class="max-w-md
+                 text-slate-500
+                 leading-7">
+
+          ทักษะไม่ได้เกิดขึ้นในวันเดียว
+          แต่เกิดจากการฝึกฝน
+          และการลงมือทำอย่างต่อเนื่อง
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="grid
+             lg:grid-cols-2
+             gap-8">
+
+
+      <!-- Academic -->
+
+      <div
+        class="art-card
+               p-8
+               bg-white">
+
+        <div
+          class="flex
+                 items-center
+                 justify-between
+                 mb-9">
+
+          <div>
+
+            <span class="text-coral">
+              01
+            </span>
+
+            <h3
+              class="font-itim
+                     text-4xl
+                     mt-1">
+
+              Academic
+
+            </h3>
+
+          </div>
+
+          <div class="text-5xl">
+            🧠
+          </div>
+
+        </div>
+
+
+        <div class="space-y-7">
+
+
+          <div>
+
+            <div class="flex justify-between mb-2">
+
+              <span>
+                Mathematics
+              </span>
+
+              <span class="text-cobalt">
+                90%
+              </span>
+
+            </div>
+
+            <div class="skill-track">
+
+              <div
+                class="skill-fill
+                       bg-cobalt
+                       w-[90%]">
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="flex justify-between mb-2">
+
+              <span>
+                Science
+              </span>
+
+              <span class="text-cobalt">
+                88%
+              </span>
+
+            </div>
+
+            <div class="skill-track">
+
+              <div
+                class="skill-fill
+                       bg-mint
+                       w-[88%]">
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="flex justify-between mb-2">
+
+              <span>
+                English
+              </span>
+
+              <span class="text-cobalt">
+                78%
+              </span>
+
+            </div>
+
+            <div class="skill-track">
+
+              <div
+                class="skill-fill
+                       bg-coral
+                       w-[78%]">
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div>
+
+            <div class="flex justify-between mb-2">
+
+              <span>
+                Computer & Technology
+              </span>
+
+              <span class="text-cobalt">
+                82%
+              </span>
+
+            </div>
+
+            <div class="skill-track">
+
+              <div
+                class="skill-fill
+                       bg-lavender
+                       w-[82%]">
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- Strengths -->
+
+      <div
+        class="art-card
+               p-8
+               bg-navy
+               text-white
+               rotate-a">
+
+        <div
+          class="flex
+                 items-center
+                 justify-between
+                 mb-9">
+
+          <div>
+
+            <span class="text-coral">
+              02
+            </span>
+
+            <h3
+              class="font-itim
+                     text-4xl
+                     mt-1">
+
+              Strengths
+
+            </h3>
+
+          </div>
+
+          <div class="text-5xl">
+            ✨
+          </div>
+
+        </div>
+
+
+        <div
+          class="grid
+                 grid-cols-2
+                 gap-4">
+
+
+          <div
+            class="rounded-2xl
+                   bg-white/10
+                   p-5">
+
+            <div class="text-3xl">
+              💡
+            </div>
+
+            <p class="font-medium mt-3">
+              Problem Solving
+            </p>
+
+          </div>
+
+
+          <div
+            class="rounded-2xl
+                   bg-white/10
+                   p-5">
+
+            <div class="text-3xl">
+              🎨
+            </div>
+
+            <p class="font-medium mt-3">
+              Creativity
+            </p>
+
+          </div>
+
+
+          <div
+            class="rounded-2xl
+                   bg-white/10
+                   p-5">
+
+            <div class="text-3xl">
+              🤝
+            </div>
+
+            <p class="font-medium mt-3">
+              Teamwork
+            </p>
+
+          </div>
+
+
+          <div
+            class="rounded-2xl
+                   bg-white/10
+                   p-5">
+
+            <div class="text-3xl">
+              🎤
+            </div>
+
+            <p class="font-medium mt-3">
+              Presentation
+            </p>
+
+          </div>
+
+
+          <div
+            class="rounded-2xl
+                   bg-white/10
+                   p-5">
+
+            <div class="text-3xl">
+              🔎
+            </div>
+
+            <p class="font-medium mt-3">
+              Research
+            </p>
+
+          </div>
+
+
+          <div
+            class="rounded-2xl
+                   bg-white/10
+                   p-5">
+
+            <div class="text-3xl">
+              ⏰
+            </div>
+
+            <p class="font-medium mt-3">
+              Time Management
+            </p>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     INTERESTS
+====================================================== -->
+
+<section
+  class="py-24
+         bg-coral
+         relative
+         overflow-hidden">
+
+  <div
+    class="absolute
+           -right-20
+           -top-20
+           w-72 h-72
+           bg-orange-300
+           rounded-full">
+  </div>
+
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8 relative z-10">
+
+
+    <div
+      class="grid
+             lg:grid-cols-[.7fr_1.3fr]
+             gap-10
+             items-center">
+
+
+      <div class="text-white">
+
+        <p
+          class="font-itim
+                 text-2xl">
+
+          what makes me curious?
+
+        </p>
+
+        <h2
+          class="font-itim
+                 text-6xl
+                 leading-none
+                 mt-3">
+
+          Things
+          <br>
+          I Love.
+
+        </h2>
+
+      </div>
+
+
+      <div
+        class="grid
+               sm:grid-cols-2
+               gap-5">
+
+
+        <div
+          class="bg-white
+                 rounded-3xl
+                 p-7
+                 border-2
+                 border-navy
+                 shadow-[5px_5px_0_#172554]">
+
+          <span class="text-5xl">
+            🔬
+          </span>
+
+          <h3 class="font-itim text-3xl mt-4">
+            Science
+          </h3>
+
+          <p class="text-slate-500 mt-2">
+            ทดลอง สังเกต
+            และค้นหาคำตอบ
+          </p>
+
+        </div>
+
+
+        <div
+          class="bg-mint
+                 rounded-3xl
+                 p-7
+                 border-2
+                 border-navy
+                 shadow-[5px_5px_0_#172554]
+                 rotate-2">
+
+          <span class="text-5xl">
+            🧮
+          </span>
+
+          <h3 class="font-itim text-3xl mt-4">
+            Mathematics
+          </h3>
+
+          <p class="text-slate-600 mt-2">
+            คิดเป็นระบบ
+            และแก้ปัญหา
+          </p>
+
+        </div>
+
+
+        <div
+          class="bg-lavender
+                 rounded-3xl
+                 p-7
+                 border-2
+                 border-navy
+                 shadow-[5px_5px_0_#172554]
+                 -rotate-2">
+
+          <span class="text-5xl">
+            💻
+          </span>
+
+          <h3 class="font-itim text-3xl mt-4">
+            Technology
+          </h3>
+
+          <p class="text-slate-600 mt-2">
+            สร้าง ทดลอง
+            และเรียนรู้สิ่งใหม่
+          </p>
+
+        </div>
+
+
+        <div
+          class="bg-white
+                 rounded-3xl
+                 p-7
+                 border-2
+                 border-navy
+                 shadow-[5px_5px_0_#172554]">
+
+          <span class="text-5xl">
+            🎨
+          </span>
+
+          <h3 class="font-itim text-3xl mt-4">
+            Creativity
+          </h3>
+
+          <p class="text-slate-500 mt-2">
+            ออกแบบไอเดีย
+            และเล่าเรื่อง
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ACTIVITIES
+====================================================== -->
+
+<section class="py-28">
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+
+    <div class="mb-16">
+
+      <p class="section-number">
+        04 / ACTIVITIES
+      </p>
+
+      <h2 class="section-title mt-3">
+        Outside The Classroom
+      </h2>
+
+    </div>
+
+
+    <div
+      class="grid
+             lg:grid-cols-3
+             gap-8">
+
+
+      <div
+        class="art-card
+               p-5
+               rotate-a">
+
+        <img
+          src="https://placehold.co/700x480/dbeafe/172554?text=STEM+ACTIVITY"
+          class="project-image"
+          alt="STEM Activity">
+
+        <div class="pt-5">
+
+          <span class="text-cobalt text-sm">
+            ACTIVITY 01
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            STEM Activity
+          </h3>
+
+          <p
+            class="text-slate-500
+                   leading-7
+                   mt-3">
+
+            ฝึกออกแบบวิธีแก้ปัญหา
+            ผ่านกระบวนการ STEM
+            และเรียนรู้จากการลงมือทำจริง
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-5
+               bg-mint
+               rotate-b">
+
+        <img
+          src="https://placehold.co/700x480/dcfce7/172554?text=SCIENCE+CAMP"
+          class="project-image"
+          alt="Science Camp">
+
+        <div class="pt-5">
+
+          <span class="text-navy text-sm">
+            ACTIVITY 02
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Science Camp
+          </h3>
+
+          <p
+            class="text-slate-600
+                   leading-7
+                   mt-3">
+
+            เปิดประสบการณ์เรียนรู้
+            ผ่านการทดลองและกิจกรรม
+            ที่นอกเหนือจากห้องเรียน
+
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-5
+               bg-lavender
+               rotate-a">
+
+        <img
+          src="https://placehold.co/700x480/ede9fe/172554?text=TEAMWORK"
+          class="project-image"
+          alt="Teamwork">
+
+        <div class="pt-5">
+
+          <span class="text-purple-800 text-sm">
+            ACTIVITY 03
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Team Project
+          </h3>
+
+          <p
+            class="text-slate-600
+                   leading-7
+                   mt-3">
+
+            ฝึกการสื่อสาร
+            แบ่งหน้าที่
+            และทำงานร่วมกับผู้อื่น
+
+          </p>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECTS
+====================================================== -->
+
+<section
+  id="projects"
+  class="py-28
+         bg-[#F4F7FF]">
+
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+
+
+    <div
+      class="flex flex-col lg:flex-row
+             lg:items-end
+             justify-between
+             gap-7
+             mb-16">
+
+      <div>
+
+        <p class="section-number">
+          05 / SELECTED WORK
+        </p>
+
+        <h2 class="section-title mt-3">
+          My Projects
+        </h2>
+
+      </div>
+
+      <p
+        class="max-w-lg
+               text-slate-500
+               leading-7">
+
+        ตัวอย่างโครงงานและผลงาน
+        ที่สามารถเปลี่ยนเป็นผลงานจริง
+        พร้อมภาพ เกียรติบัตร
+        หรือไฟล์ PDF ได้ภายหลัง
+
+      </p>
+
+    </div>
+
+
+    <div
+      class="grid
+             md:grid-cols-2
+             lg:grid-cols-3
+             gap-8">
+
+
+      <!-- Project 01 -->
+
+      <article class="art-card p-4 bg-white">
+
+        <img
+          src="https://placehold.co/700x480/dbeafe/172554?text=01+STEM"
+          class="project-image"
+          alt="STEM Challenge">
+
+        <div class="p-3">
+
+          <span class="text-cobalt text-xs">
+            PROJECT 01
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            STEM Challenge
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            ฝึกแก้โจทย์จากสถานการณ์จำลอง
+            โดยใช้ความรู้ด้านวิทยาศาสตร์
+            คณิตศาสตร์ และการออกแบบ
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 02 -->
+
+      <article class="art-card p-4 bg-orange-50 rotate-b">
+
+        <img
+          src="https://placehold.co/700x480/ffedd5/172554?text=02+SCIENCE"
+          class="project-image"
+          alt="Science Experiment">
+
+        <div class="p-3">
+
+          <span class="text-coral text-xs">
+            PROJECT 02
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Science Experiment
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            ตั้งสมมติฐาน ทดลอง
+            เก็บข้อมูล วิเคราะห์
+            และสรุปผลอย่างเป็นขั้นตอน
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 03 -->
+
+      <article class="art-card p-4 bg-purple-50 rotate-a">
+
+        <img
+          src="https://placehold.co/700x480/ede9fe/172554?text=03+ROBOTICS"
+          class="project-image"
+          alt="Robotics">
+
+        <div class="p-3">
+
+          <span class="text-purple-700 text-xs">
+            PROJECT 03
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Mini Robotics
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            เรียนรู้พื้นฐานระบบหุ่นยนต์
+            การออกแบบ และการทำงาน
+            ของอุปกรณ์
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 04 -->
+
+      <article class="art-card p-4 bg-mint rotate-a">
+
+        <img
+          src="https://placehold.co/700x480/dcfce7/172554?text=04+DESIGN"
+          class="project-image"
+          alt="Creative Design">
+
+        <div class="p-3">
+
+          <span class="text-emerald-700 text-xs">
+            PROJECT 04
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Creative Design
+          </h3>
+
+          <p class="text-slate-600 mt-3 leading-7">
+            ออกแบบสื่อเพื่อสรุปข้อมูล
+            ให้มีความน่าสนใจ
+            และเข้าใจง่าย
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 05 -->
+
+      <article class="art-card p-4 bg-white rotate-b">
+
+        <img
+          src="https://placehold.co/700x480/e0e7ff/172554?text=05+MATH"
+          class="project-image"
+          alt="Math">
+
+        <div class="p-3">
+
+          <span class="text-cobalt text-xs">
+            PROJECT 05
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Math Problem Solving
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            วิเคราะห์โจทย์
+            แยกปัญหาเป็นขั้นตอน
+            และหาแนวทางแก้ไข
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 06 -->
+
+      <article class="art-card p-4 bg-yellow-50">
+
+        <img
+          src="https://placehold.co/700x480/fef3c7/172554?text=06+TEAM"
+          class="project-image"
+          alt="Team Project">
+
+        <div class="p-3">
+
+          <span class="text-yellow-700 text-xs">
+            PROJECT 06
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Team Project
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            วางแผน แบ่งหน้าที่
+            สื่อสาร และร่วมกันแก้ปัญหา
+            ภายในทีม
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 07 -->
+
+      <article class="art-card p-4 bg-white">
+
+        <img
+          src="https://placehold.co/700x480/fce7f3/172554?text=07+CAMP"
+          class="project-image"
+          alt="Science Camp">
+
+        <div class="p-3">
+
+          <span class="text-pink-600 text-xs">
+            PROJECT 07
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Science Camp
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            เรียนรู้จากกิจกรรมนอกห้องเรียน
+            และทดลองสิ่งใหม่ ๆ
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 08 -->
+
+      <article class="art-card p-4 bg-lavender rotate-a">
+
+        <img
+          src="https://placehold.co/700x480/ede9fe/172554?text=08+PRESENT"
+          class="project-image"
+          alt="Presentation">
+
+        <div class="p-3">
+
+          <span class="text-purple-700 text-xs">
+            PROJECT 08
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Presentation
+          </h3>
+
+          <p class="text-slate-600 mt-3 leading-7">
+            ฝึกนำเสนอข้อมูล
+            และสื่อสารแนวคิด
+            ต่อหน้าผู้อื่น
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 09 -->
+
+      <article class="art-card p-4 bg-orange-50 rotate-b">
+
+        <img
+          src="https://placehold.co/700x480/ffedd5/172554?text=09+INNOVATION"
+          class="project-image"
+          alt="Innovation">
+
+        <div class="p-3">
+
+          <span class="text-coral text-xs">
+            PROJECT 09
+          </span>
+
+          <h3 class="font-itim text-3xl mt-2">
+            Young Innovator
+          </h3>
+
+          <p class="text-slate-500 mt-3 leading-7">
+            นำปัญหาใกล้ตัว
+            มาคิดเป็นแนวทาง
+            และพัฒนาไอเดีย
+          </p>
+
+        </div>
+
+      </article>
+
+
+      <!-- Project 10 -->
+
+      <article
+        class="art-card
+               p-4
+               bg-navy
+               text-white
+               md:col-span-2
+               lg:col-span-3">
+
+
+        <div
+          class="grid
+                 md:grid-cols-2
+                 gap-7
+                 items-center">
+
+
+          <img
+            src="https://placehold.co/800x500/e0e7ff/172554?text=10+SELF+LEARNING"
+            class="project-image"
+            alt="Self Learning">
+
+
+          <div class="p-3">
+
+            <span class="text-coral text-xs">
+              PROJECT 10
+            </span>
+
+            <h3 class="font-itim text-4xl mt-3">
+              Self Learning
+            </h3>
+
+            <p
+              class="text-blue-100
+                     leading-8
+                     mt-4">
+
+              การเรียนรู้ด้วยตัวเองจากหนังสือ
+              สื่อออนไลน์ และแหล่งความรู้ต่าง ๆ
+              เพราะเชื่อว่าความอยากรู้อยากเห็น
+              คือจุดเริ่มต้นของการพัฒนาตัวเอง
+
+            </p>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     AWARDS
+====================================================== -->
+
+<section id="awards" class="py-28">
+
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+
+    <div class="text-center mb-16">
+
+      <p class="section-number">
+        06 / ACHIEVEMENTS
+      </p>
+
+      <h2 class="section-title mt-3">
+        Awards & Certificates
+      </h2>
+
+      <p class="text-slate-500 mt-4">
+        ผลงานและความภาคภูมิใจ
+      </p>
+
+    </div>
+
+
+    <div
+      class="grid
+             md:grid-cols-3
+             gap-7">
+
+
+      <div
+        class="art-card
+               p-7
+               bg-yellow-50
+               rotate-a">
+
+        <div class="text-5xl">
+          🏆
+        </div>
+
+        <span
+          class="block
+                 text-coral
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 01
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          Science Competition
+        </h3>
+
+        <p class="text-slate-500 mt-3 leading-7">
+          สำหรับใส่ชื่อการแข่งขัน
+          ผลงาน และรายละเอียดจริง
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-blue-50
+               rotate-b">
+
+        <div class="text-5xl">
+          📜
+        </div>
+
+        <span
+          class="block
+                 text-cobalt
+                 text-sm
+                 mt-5">
+
+          CERTIFICATE 02
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          STEM Certificate
+        </h3>
+
+        <p class="text-slate-500 mt-3 leading-7">
+          สำหรับใส่ชื่อค่าย
+          หรือกิจกรรม STEM จริง
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-mint">
+
+        <div class="text-5xl">
+          ⭐
+        </div>
+
+        <span
+          class="block
+                 text-emerald-700
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 03
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          Academic Achievement
+        </h3>
+
+        <p class="text-slate-600 mt-3 leading-7">
+          สำหรับใส่รางวัล
+          หรือผลงานด้านวิชาการจริง
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     QUOTE
+====================================================== -->
+
+<section class="py-20 px-5">
+
+  <div
+    class="max-w-5xl
+           mx-auto
+           art-card
+           bg-lavender
+           p-10 md:p-16
+           text-center
+           rotate-a">
+
+
+    <div class="text-6xl">
+      ✦
+    </div>
+
+
+    <blockquote
+      class="font-itim
+             text-4xl md:text-5xl
+             text-navy
+             leading-tight
+             mt-6">
+
+      "Every question
+      <br>
+      is the beginning
+      <br class="md:hidden">
+      of a new discovery."
+
+    </blockquote>
+
+
+    <p
+      class="text-slate-600
+             mt-7
+             max-w-2xl
+             mx-auto
+             leading-8">
+
+      หนูเชื่อว่าการเรียนรู้ที่ดี
+      ไม่ได้เริ่มจากการรู้ทุกคำตอบ
+      แต่เริ่มจากการกล้าที่จะตั้งคำถาม
+
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     GOAL
+====================================================== -->
+
+<section
+  id="goal"
+  class="py-28
+         bg-navy
+         text-white
+         blueprint-grid">
+
+
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+
+    <div class="text-center mb-16">
+
+      <p class="text-coral font-medium">
+        07 / MY FUTURE
+      </p>
+
+      <h2
+        class="font-itim
+               text-6xl
+               mt-3">
+
+        Where I Want To Go
+
+      </h2>
+
+    </div>
+
+
+    <div
+      class="grid
+             lg:grid-cols-2
+             gap-8">
+
+
+      <!-- Short Goal -->
+
+      <div
+        class="bg-white
+               text-navy
+               rounded-[30px]
+               p-9
+               border-2
+               border-white
+               shadow-[8px_8px_0_#F97316]">
+
+
+        <div class="text-6xl">
+          🎯
+        </div>
+
+        <p
+          class="text-coral
+                 font-medium
+                 mt-6">
+
+          SHORT-TERM GOAL
+
+        </p>
+
+        <h3
+          class="font-itim
+                 text-4xl
+                 mt-2">
+
+          ม.4 MWIT /
+          โครงการ วมว.
+
+        </h3>
+
+        <p
+          class="text-slate-500
+                 leading-8
+                 mt-5">
+
+          ต้องการพัฒนาความรู้
+          ด้านวิทยาศาสตร์ คณิตศาสตร์
+          ภาษาอังกฤษ และทักษะการทำโครงงาน
+          พร้อมเรียนรู้ในสภาพแวดล้อม
+          ที่ส่งเสริมศักยภาพของผู้เรียน
+
+        </p>
+
+      </div>
+
+
+      <!-- Long Goal -->
+
+      <div
+        class="bg-coral
+               rounded-[30px]
+               p-9
+               border-2
+               border-white
+               shadow-[8px_8px_0_#6EE7B7]">
+
+
+        <div class="text-6xl">
+          🚀
+        </div>
+
+        <p
+          class="text-white/80
+                 font-medium
+                 mt-6">
+
+          LONG-TERM DREAM
+
+        </p>
+
+        <h3
+          class="font-itim
+                 text-4xl
+                 mt-2">
+
+          Discover.
+          Create.
+          Contribute.
+
+        </h3>
+
+        <p
+          class="text-white/90
+                 leading-8
+                 mt-5">
+
+          อยากค้นหาสาขาที่เหมาะกับตัวเอง
+          และนำความรู้ด้านวิทยาศาสตร์
+          เทคโนโลยี วิศวกรรม
+          หรือนวัตกรรม
+          ไปสร้างสิ่งที่มีประโยชน์ต่อสังคม
+
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <!-- Why -->
+
+    <div
+      class="mt-10
+             rounded-[30px]
+             border-2
+             border-white/30
+             bg-white/10
+             p-9 md:p-12
+             text-center">
+
+
+      <div class="text-5xl">
+        🌱
+      </div>
+
+
+      <h3
+        class="font-itim
+               text-4xl
+               mt-5">
+
+        Why do I want to study there?
+
+      </h3>
+
+
+      <p
+        class="max-w-3xl
+               mx-auto
+               text-blue-100
+               leading-8
+               mt-5">
+
+        เพราะหนูอยากเรียนรู้ในสภาพแวดล้อม
+        ที่เปิดโอกาสให้ตั้งคำถาม
+        ทดลอง ทำโครงงาน
+        แลกเปลี่ยนความคิดเห็น
+        และได้เติบโตไปพร้อมกับเพื่อน ๆ
+        ที่มีความสนใจในการเรียนรู้เหมือนกัน
+
+      </p>
+
+
+      <div
+        class="flex flex-wrap
+               justify-center
+               gap-3
+               mt-8">
+
+        <span class="sticker bg-mint text-navy">
+          SCIENCE
+        </span>
+
+        <span class="sticker bg-white text-navy">
+          RESEARCH
+        </span>
+
+        <span class="sticker bg-lavender text-navy">
+          INNOVATION
+        </span>
+
+        <span class="sticker bg-coral text-white">
+          GROWTH
+        </span>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTACT / FOOTER
+====================================================== -->
+
+<footer
+  id="contact"
+  class="bg-[#0F172A]
+         text-white
+         pt-24 pb-10">
+
+
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+
+
+    <div
+      class="grid
+             lg:grid-cols-2
+             gap-12
+             items-end">
+
+
+      <div>
+
+        <p
+          class="font-itim
+                 text-2xl
+                 text-mint">
+
+          thank you for visiting ♡
+
+        </p>
+
+
+        <h2
+          class="font-itim
+                 text-6xl
+                 md:text-7xl
+                 mt-3">
+
+          กวินทิพย์
+          <span class="text-coral">
+            บุญมั่ง
+          </span>
+
+        </h2>
+
+
+        <p
+          class="text-slate-400
+                 mt-5
+                 leading-7
+                 max-w-xl">
+
+          Portfolio สำหรับการสมัครเข้าศึกษาต่อ
+          ม.4 MWIT / โครงการ วมว.
+          จัดทำขึ้นเพื่อรวบรวมตัวตน
+          ประสบการณ์ และเส้นทางการเรียนรู้
+
+        </p>
+
+      </div>
+
+
+      <div
+        class="grid
+               sm:grid-cols-2
+               gap-5">
+
+
+        <a
+          href="mailto:your@email.com"
+          class="rounded-2xl
+                 bg-white
+                 text-navy
+                 p-6
+                 hover:-translate-y-2
+                 transition">
+
+          <span class="text-3xl">
+            ✉️
+          </span>
+
+          <p
+            class="font-itim
+                   text-2xl
+                   mt-3">
+
+            Email
+
+          </p>
+
+          <p
+            class="text-sm
+                   text-slate-500
+                   mt-1">
+
+            your@email.com
+
+          </p>
+
+        </a>
+
+
+        <a
+          href="#"
+          class="rounded-2xl
+                 bg-mint
+                 text-navy
+                 p-6
+                 hover:-translate-y-2
+                 transition">
+
+          <span class="text-3xl">
+            💻
+          </span>
+
+          <p
+            class="font-itim
+                   text-2xl
+                   mt-3">
+
+            GitHub
+
+          </p>
+
+          <p
+            class="text-sm
+                   text-slate-600
+                   mt-1">
+
+            yourusername
+
+          </p>
+
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div
+      class="mt-20
+             pt-7
+             border-t
+             border-white/10
+             flex flex-col md:flex-row
+             justify-between
+             gap-3
+             text-sm
+             text-slate-500">
+
+      <p>
+        © 2026 Kawintip Boonmang
+      </p>
+
+      <p>
+        Made with curiosity ✦
+      </p>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+====================================================== -->
+
+<script>
+
+  /* =========================================
+     MOBILE MENU
+  ========================================== */
+
+  const menuBtn =
+    document.getElementById("menuBtn");
+
+  const mobileMenu =
+    document.getElementById("mobileMenu");
+
+
+  menuBtn.addEventListener(
+    "click",
+    () => {
+
+      mobileMenu.classList.toggle(
+        "show"
+      );
+
+    }
+  );
+
+
+  /* =========================================
+     CLOSE MOBILE MENU
+  ========================================== */
+
+  document
+    .querySelectorAll("#mobileMenu a")
+    .forEach(link => {
+
+      link.addEventListener(
+        "click",
+        () => {
+
+          mobileMenu.classList.remove(
+            "show"
+          );
+
+        }
+      );
+
+    });
+
+
+  /* =========================================
+     SMOOTH SCROLL
+  ========================================== */
+
+  document
+    .querySelectorAll('a[href^="#"]')
+    .forEach(anchor => {
+
+      anchor.addEventListener(
+        "click",
+        function(e) {
+
+          const target =
+            document.querySelector(
+              this.getAttribute("href")
+            );
+
+
+          if (target) {
+
+            e.preventDefault();
+
+            target.scrollIntoView({
+              behavior: "smooth"
+            });
+
+          }
+
+        }
+      );
+
+    });
+
+</script>
+
+
+</body>
+</html>
