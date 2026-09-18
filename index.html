@@ -28,13 +28,13 @@
         extend: {
 
           colors: {
-            navy: "#163B4D",
-            cobalt: "#147D8A",
-            coral: "#E57B5D",
-            mint: "#B9D9C3",
-            lavender: "#C9DFE0",
-            cream: "#FBF7EF",
-            ink: "#24313B"
+            navy: "#003B73",
+            cobalt: "#0057B8",
+            coral: "#D62828",
+            mint: "#FFD500",
+            lavender: "#DCEBFF",
+            cream: "#FFFDF5",
+            ink: "#111827"
           },
 
           fontFamily: {
@@ -54,13 +54,13 @@
   <style>
 
     :root {
-      --navy: #163b4d;
-      --blue: #147d8a;
-      --coral: #e57b5d;
-      --mint: #b9d9c3;
-      --lavender: #c9dfe0;
-      --cream: #fbf7ef;
-      --ink: #24313b;
+      --navy: #003b73;
+      --blue: #0057b8;
+      --coral: #d62828;
+      --mint: #ffd500;
+      --lavender: #dcebff;
+      --cream: #fffdf5;
+      --ink: #111827;
     }
 
     * {
@@ -76,6 +76,7 @@
       background: var(--cream);
       color: var(--ink);
       font-family: "Noto Sans Thai", sans-serif;
+      font-size: 16px;
       overflow-x: hidden;
     }
 
@@ -117,15 +118,32 @@
     ====================================================== */
 
     .art-card {
+      position: relative;
       background: white;
-      border: 2px solid var(--navy);
-      border-radius: 28px;
+      border: 3px solid var(--navy);
+      border-radius: 0 30px 0 30px;
+      overflow: hidden;
 
       box-shadow:
-        7px 7px 0 var(--navy);
+        9px 9px 0 var(--navy);
 
       transition:
         .3s ease;
+    }
+
+    .art-card::before {
+      content: "";
+      position: absolute;
+      inset: 9px;
+      border: 2px solid var(--coral);
+      border-radius: 0 20px 0 20px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .art-card > * {
+      position: relative;
+      z-index: 1;
     }
 
     .art-card:hover {
@@ -134,6 +152,43 @@
 
       box-shadow:
         11px 11px 0 var(--coral);
+    }
+
+    .art-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 0;
+      height: 0;
+      border-top: 42px solid var(--coral);
+      border-left: 42px solid transparent;
+      pointer-events: none;
+    }
+
+    .art-card:nth-child(3n)::after {
+      border-top-color: var(--mint);
+      border-left: 42px solid transparent;
+    }
+
+    .art-card:nth-child(even) {
+      border-radius: 30px 0 30px 0;
+    }
+
+    .art-card:nth-child(even)::before {
+      border-color: var(--cobalt);
+      border-radius: 20px 0 20px 0;
+    }
+
+    .art-card h3,
+    .section-title,
+    .font-itim {
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .section-title {
+      text-shadow: 3px 3px 0 var(--mint);
     }
 
 
@@ -221,7 +276,8 @@
 
       object-fit: cover;
 
-      border-radius: 20px;
+      border-radius: 0 18px 0 18px;
+      border-width: 3px;
 
       border: 2px solid var(--navy);
     }
@@ -384,13 +440,13 @@
 
     }
 
-    .bg-orange-50 { background-color: #fff1e8 !important; }
-    .bg-orange-200 { background-color: #f3c9a5 !important; }
-    .bg-orange-300 { background-color: #eaa27d !important; }
+    .bg-orange-50 { background-color: #fff4b8 !important; }
+    .bg-orange-200 { background-color: #ffd500 !important; }
+    .bg-orange-300 { background-color: #ffb800 !important; }
     .text-purple-700,
-    .text-purple-800 { color: #a65349 !important; }
-    .text-blue-100 { color: #d9ece8 !important; }
-    .bg-\[\#EEF4FF\] { background-color: #eaf3f0 !important; }
+    .text-purple-800 { color: #d62828 !important; }
+    .text-blue-100 { color: #e2efff !important; }
+    .bg-\[\#EEF4FF\] { background-color: #e6f0ff !important; }
 
   </style>
 
@@ -468,10 +524,6 @@
         Skills
       </a>
 
-      <a href="#projects" class="hover:text-cobalt transition">
-        Projects
-      </a>
-
       <a href="#awards" class="hover:text-cobalt transition">
         Awards
       </a>
@@ -484,7 +536,7 @@
                rounded-full
                border-2
                border-navy
-               shadow-[3px_3px_0_#163B4D]">
+               shadow-[3px_3px_0_#003B73]">
 
         My Goal →
 
@@ -524,13 +576,12 @@
              border-navy
              rounded-2xl
              p-5
-             shadow-[5px_5px_0_#163B4D]
+             shadow-[5px_5px_0_#003B73]
              flex flex-col gap-4">
 
       <a href="#about">About Me</a>
       <a href="#education">Education</a>
       <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
       <a href="#awards">Awards</a>
       <a href="#goal">My Goal</a>
 
@@ -799,7 +850,7 @@
                    rounded-full
                    border-2
                    border-navy
-                   shadow-[4px_4px_0_#163B4D]
+                   shadow-[4px_4px_0_#003B73]
                    hover:translate-y-1
                    transition">
 
@@ -1877,7 +1928,7 @@
                  p-7
                  border-2
                  border-navy
-                 shadow-[5px_5px_0_#163B4D]">
+                 shadow-[5px_5px_0_#003B73]">
 
           <span class="text-5xl">
             🔬
@@ -1901,7 +1952,7 @@
                  p-7
                  border-2
                  border-navy
-                 shadow-[5px_5px_0_#163B4D]
+                 shadow-[5px_5px_0_#003B73]
                  rotate-2">
 
           <span class="text-5xl">
@@ -1926,7 +1977,7 @@
                  p-7
                  border-2
                  border-navy
-                 shadow-[5px_5px_0_#163B4D]
+                 shadow-[5px_5px_0_#003B73]
                  -rotate-2">
 
           <span class="text-5xl">
@@ -1951,7 +2002,7 @@
                  p-7
                  border-2
                  border-navy
-                 shadow-[5px_5px_0_#163B4D]">
+                 shadow-[5px_5px_0_#003B73]">
 
           <span class="text-5xl">
             🎨
@@ -1963,539 +2014,11 @@
 
           <p class="text-slate-500 mt-2">
             ออกแบบไอเดีย
-            และเล่าเรื่อง
           </p>
 
         </div>
 
       </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     ACTIVITIES
-====================================================== -->
-
-<section class="py-28">
-
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
-
-
-    <div class="mb-16">
-
-      <p class="section-number">
-        04 / ACTIVITIES
-      </p>
-
-      <h2 class="section-title mt-3">
-        Outside The Classroom
-      </h2>
-
-    </div>
-
-
-    <div
-      class="grid
-             lg:grid-cols-3
-             gap-8">
-
-
-      <div
-        class="art-card
-               p-5
-               rotate-a">
-
-        <img
-          src="https://placehold.co/700x480/dbeafe/172554?text=STEM+ACTIVITY"
-          class="project-image"
-          alt="STEM Activity">
-
-        <div class="pt-5">
-
-          <span class="text-cobalt text-sm">
-            ACTIVITY 01
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            STEM Activity
-          </h3>
-
-          <p
-            class="text-slate-500
-                   leading-7
-                   mt-3">
-
-            ฝึกออกแบบวิธีแก้ปัญหา
-            ผ่านกระบวนการ STEM
-            และเรียนรู้จากการลงมือทำจริง
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="art-card
-               p-5
-               bg-mint
-               rotate-b">
-
-        <img
-          src="https://placehold.co/700x480/dcfce7/172554?text=SCIENCE+CAMP"
-          class="project-image"
-          alt="Science Camp">
-
-        <div class="pt-5">
-
-          <span class="text-navy text-sm">
-            ACTIVITY 02
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Science Camp
-          </h3>
-
-          <p
-            class="text-slate-600
-                   leading-7
-                   mt-3">
-
-            เปิดประสบการณ์เรียนรู้
-            ผ่านการทดลองและกิจกรรม
-            ที่นอกเหนือจากห้องเรียน
-
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <div
-        class="art-card
-               p-5
-               bg-lavender
-               rotate-a">
-
-        <img
-          src="https://placehold.co/700x480/ede9fe/172554?text=TEAMWORK"
-          class="project-image"
-          alt="Teamwork">
-
-        <div class="pt-5">
-
-          <span class="text-purple-800 text-sm">
-            ACTIVITY 03
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Team Project
-          </h3>
-
-          <p
-            class="text-slate-600
-                   leading-7
-                   mt-3">
-
-            ฝึกการสื่อสาร
-            แบ่งหน้าที่
-            และทำงานร่วมกับผู้อื่น
-
-          </p>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJECTS
-====================================================== -->
-
-<section
-  id="projects"
-  class="py-28
-         bg-[#F4F7FF]">
-
-  <div class="max-w-7xl mx-auto px-5 md:px-8">
-
-
-    <div
-      class="flex flex-col lg:flex-row
-             lg:items-end
-             justify-between
-             gap-7
-             mb-16">
-
-      <div>
-
-        <p class="section-number">
-          05 / SELECTED WORK
-        </p>
-
-        <h2 class="section-title mt-3">
-          My Projects
-        </h2>
-
-      </div>
-
-      <p
-        class="max-w-lg
-               text-slate-500
-               leading-7">
-
-        ตัวอย่างโครงงานและผลงาน
-        ที่สามารถเปลี่ยนเป็นผลงานจริง
-        พร้อมภาพ เกียรติบัตร
-        หรือไฟล์ PDF ได้ภายหลัง
-
-      </p>
-
-    </div>
-
-
-    <div
-      class="grid
-             md:grid-cols-2
-             lg:grid-cols-3
-             gap-8">
-
-
-      <!-- Project 01 -->
-
-      <article class="art-card p-4 bg-white">
-
-        <img
-          src="https://placehold.co/700x480/dbeafe/172554?text=01+STEM"
-          class="project-image"
-          alt="STEM Challenge">
-
-        <div class="p-3">
-
-          <span class="text-cobalt text-xs">
-            PROJECT 01
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            STEM Challenge
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            ฝึกแก้โจทย์จากสถานการณ์จำลอง
-            โดยใช้ความรู้ด้านวิทยาศาสตร์
-            คณิตศาสตร์ และการออกแบบ
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 02 -->
-
-      <article class="art-card p-4 bg-orange-50 rotate-b">
-
-        <img
-          src="https://placehold.co/700x480/ffedd5/172554?text=02+SCIENCE"
-          class="project-image"
-          alt="Science Experiment">
-
-        <div class="p-3">
-
-          <span class="text-coral text-xs">
-            PROJECT 02
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Science Experiment
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            ตั้งสมมติฐาน ทดลอง
-            เก็บข้อมูล วิเคราะห์
-            และสรุปผลอย่างเป็นขั้นตอน
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 03 -->
-
-      <article class="art-card p-4 bg-purple-50 rotate-a">
-
-        <img
-          src="https://placehold.co/700x480/ede9fe/172554?text=03+ROBOTICS"
-          class="project-image"
-          alt="Robotics">
-
-        <div class="p-3">
-
-          <span class="text-purple-700 text-xs">
-            PROJECT 03
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Mini Robotics
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            เรียนรู้พื้นฐานระบบหุ่นยนต์
-            การออกแบบ และการทำงาน
-            ของอุปกรณ์
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 04 -->
-
-      <article class="art-card p-4 bg-mint rotate-a">
-
-        <img
-          src="https://placehold.co/700x480/dcfce7/172554?text=04+DESIGN"
-          class="project-image"
-          alt="Creative Design">
-
-        <div class="p-3">
-
-          <span class="text-emerald-700 text-xs">
-            PROJECT 04
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Creative Design
-          </h3>
-
-          <p class="text-slate-600 mt-3 leading-7">
-            ออกแบบสื่อเพื่อสรุปข้อมูล
-            ให้มีความน่าสนใจ
-            และเข้าใจง่าย
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 05 -->
-
-      <article class="art-card p-4 bg-white rotate-b">
-
-        <img
-          src="https://placehold.co/700x480/e0e7ff/172554?text=05+MATH"
-          class="project-image"
-          alt="Math">
-
-        <div class="p-3">
-
-          <span class="text-cobalt text-xs">
-            PROJECT 05
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Math Problem Solving
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            วิเคราะห์โจทย์
-            แยกปัญหาเป็นขั้นตอน
-            และหาแนวทางแก้ไข
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 06 -->
-
-      <article class="art-card p-4 bg-yellow-50">
-
-        <img
-          src="https://placehold.co/700x480/fef3c7/172554?text=06+TEAM"
-          class="project-image"
-          alt="Team Project">
-
-        <div class="p-3">
-
-          <span class="text-yellow-700 text-xs">
-            PROJECT 06
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Team Project
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            วางแผน แบ่งหน้าที่
-            สื่อสาร และร่วมกันแก้ปัญหา
-            ภายในทีม
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 07 -->
-
-      <article class="art-card p-4 bg-white">
-
-        <img
-          src="https://placehold.co/700x480/fce7f3/172554?text=07+CAMP"
-          class="project-image"
-          alt="Science Camp">
-
-        <div class="p-3">
-
-          <span class="text-pink-600 text-xs">
-            PROJECT 07
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Science Camp
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            เรียนรู้จากกิจกรรมนอกห้องเรียน
-            และทดลองสิ่งใหม่ ๆ
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 08 -->
-
-      <article class="art-card p-4 bg-lavender rotate-a">
-
-        <img
-          src="https://placehold.co/700x480/ede9fe/172554?text=08+PRESENT"
-          class="project-image"
-          alt="Presentation">
-
-        <div class="p-3">
-
-          <span class="text-purple-700 text-xs">
-            PROJECT 08
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Presentation
-          </h3>
-
-          <p class="text-slate-600 mt-3 leading-7">
-            ฝึกนำเสนอข้อมูล
-            และสื่อสารแนวคิด
-            ต่อหน้าผู้อื่น
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 09 -->
-
-      <article class="art-card p-4 bg-orange-50 rotate-b">
-
-        <img
-          src="https://placehold.co/700x480/ffedd5/172554?text=09+INNOVATION"
-          class="project-image"
-          alt="Innovation">
-
-        <div class="p-3">
-
-          <span class="text-coral text-xs">
-            PROJECT 09
-          </span>
-
-          <h3 class="font-itim text-3xl mt-2">
-            Young Innovator
-          </h3>
-
-          <p class="text-slate-500 mt-3 leading-7">
-            นำปัญหาใกล้ตัว
-            มาคิดเป็นแนวทาง
-            และพัฒนาไอเดีย
-          </p>
-
-        </div>
-
-      </article>
-
-
-      <!-- Project 10 -->
-
-      <article
-        class="art-card
-               p-4
-               bg-navy
-               text-white
-               md:col-span-2
-               lg:col-span-3">
-
-
-        <div
-          class="grid
-                 md:grid-cols-2
-                 gap-7
-                 items-center">
-
-
-          <img
-            src="https://placehold.co/800x500/e0e7ff/172554?text=10+SELF+LEARNING"
-            class="project-image"
-            alt="Self Learning">
-
-
-          <div class="p-3">
-
-            <span class="text-coral text-xs">
-              PROJECT 10
-            </span>
-
-            <h3 class="font-itim text-4xl mt-3">
-              Self Learning
-            </h3>
-
-            <p
-              class="text-blue-100
-                     leading-8
-                     mt-4">
-
-              การเรียนรู้ด้วยตัวเองจากหนังสือ
-              สื่อออนไลน์ และแหล่งความรู้ต่าง ๆ
-              เพราะเชื่อว่าความอยากรู้อยากเห็น
-              คือจุดเริ่มต้นของการพัฒนาตัวเอง
-
-            </p>
-
-          </div>
-
-        </div>
-
-      </article>
 
     </div>
 
@@ -2543,6 +2066,11 @@
                bg-yellow-50
                rotate-a">
 
+        <img
+          src="img/IMG_9853.JPG"
+          class="project-image mb-5"
+          alt="Award 01">
+
         <div class="text-5xl">
           🏆
         </div>
@@ -2558,44 +2086,11 @@
         </span>
 
         <h3 class="font-itim text-3xl mt-2">
-          Science Competition
+          รางวัลรองชนะเลิศอันดับ 1 เหรียญเงิน
         </h3>
 
         <p class="text-slate-500 mt-3 leading-7">
-          สำหรับใส่ชื่อการแข่งขัน
-          ผลงาน และรายละเอียดจริง
-        </p>
-
-      </div>
-
-
-      <div
-        class="art-card
-               p-7
-               bg-blue-50
-               rotate-b">
-
-        <div class="text-5xl">
-          📜
-        </div>
-
-        <span
-          class="block
-                 text-cobalt
-                 text-sm
-                 mt-5">
-
-          CERTIFICATE 02
-
-        </span>
-
-        <h3 class="font-itim text-3xl mt-2">
-          STEM Certificate
-        </h3>
-
-        <p class="text-slate-500 mt-3 leading-7">
-          สำหรับใส่ชื่อค่าย
-          หรือกิจกรรม STEM จริง
+          การแข่งขันทักษะทางวิทยาศาสตร์และเทคโนโลยี ระดับมัธยมศึกษาตอนต้น ปี2568
         </p>
 
       </div>
@@ -2605,6 +2100,11 @@
         class="art-card
                p-7
                bg-mint">
+
+        <img
+          src="img/IMG_1897.PNG"
+          class="project-image mb-5"
+          alt="Award 02">
 
         <div class="text-5xl">
           ⭐
@@ -2616,17 +2116,269 @@
                  text-sm
                  mt-5">
 
+          ACHIEVEMENT 02
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          รางวัลรองชนะเลิศอันดับ 2 เหรียญเงิน
+        </h3>
+
+        <p class="text-slate-600 mt-3 leading-7">
+          การแข่งขันตอบปัญหาวิทยาศาสตร์ ระดับมัธยมศึกษาตอนต้น ปี2569
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-lavender
+               rotate-b">
+
+        <img
+          src="img/จรวด.png"
+          class="project-image mb-5"
+          alt="Award 03">
+
+        <div class="text-5xl">
+          📜
+        </div>
+
+        <span
+          class="block
+                 text-cobalt
+                 text-sm
+                 mt-5">
+
           ACHIEVEMENT 03
 
         </span>
 
         <h3 class="font-itim text-3xl mt-2">
-          Academic Achievement
+          รางวัลเข้าร่วม ระดับเหรียญทองแดง
         </h3>
 
         <p class="text-slate-600 mt-3 leading-7">
-          สำหรับใส่รางวัล
-          หรือผลงานด้านวิชาการจริง
+         การแข่งขันจรวดขวดน้ํา ระดับมัธยมศึกษาปีที่1-3 ปี2569
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-orange-50
+               rotate-a">
+
+        <img
+          src="img/food web.png"
+          class="project-image mb-5"
+          alt="Award 04">
+
+        <div class="text-5xl">
+          🥇
+        </div>
+
+        <span
+          class="block
+                 text-coral
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 04
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          เข้าร่วมการแข่งขันบอร์ดเกมเชิงวิชาการ ชิงถ้วยพระราชทาน ประจำปี2569
+        </h3>
+
+        <p class="text-slate-500 mt-3 leading-7">
+    
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-white
+               rotate-b">
+
+        <img
+          src="img/พลังรัก.png"
+          class="project-image mb-5"
+          alt="Award 05">
+
+        <div class="text-5xl">
+          🌟
+        </div>
+
+        <span
+          class="block
+                 text-purple-700
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 05
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          เข้าร่วมการแข่งขันรอบชิงชนะเลิศ ระดับประเทศ
+        </h3>
+
+        <p class="text-slate-500 mt-3 leading-7">
+        การแข่งขันกิจกรรมพลังแห่งรัก
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-coral
+               text-white
+               rotate-a">
+
+        <img
+          src="img/เล่มเล็ก.JPG"
+          class="project-image mb-5"
+          alt="Award 06">
+
+        <div class="text-5xl">
+          ✨
+        </div>
+
+        <span
+          class="block
+                 text-white/80
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 06
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          รางวัลชนะเลิศ เหรียญทอง
+        </h3>
+
+        <p class="text-white/90 mt-3 leading-7">
+          การแข่งขันหนังสือเล่มเล็ก ม.1-3 งานศิลปหัตถกรรมระดับเขตพื้นที่การศึกษาครั้งที่74 ปีการศึกษา 2569
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-white
+               rotate-b">
+
+        <img
+          src="img/project.JPG"
+          class="project-image mb-5"
+          alt="Project Showcase">
+
+        <div class="text-5xl">
+          🧩
+        </div>
+
+        <span
+          class="block
+                 text-cobalt
+                 text-sm
+                 mt-5">
+
+          PROJECT
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          รางวัลระดับเหรียญทอง
+        </h3>
+
+        <p class="text-slate-500 mt-3 leading-7">
+          นิทรรศการการนำเสนอผลงานโครงงาน สาขาวิทยาศาสตร์ประยุกต์
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-yellow-50
+               rotate-a">
+
+        <img
+          src="img/2568.PNG"
+          class="project-image mb-5"
+          alt="Award 07">
+
+        <div class="text-5xl">
+          🏅
+        </div>
+
+        <span
+          class="block
+                 text-coral
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 07
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          เข้าร่วมการแข่งขัน ระดับเหรียญเงิน
+        </h3>
+
+        <p class="text-slate-500 mt-3 leading-7">
+          การแข่งขันตอบปัญหาวิทยาศาสตร์ ระดับมัธยมศึกษาตอนต้น ปี2568
+        </p>
+
+      </div>
+
+
+      <div
+        class="art-card
+               p-7
+               bg-lavender
+               rotate-b">
+
+        <img
+          src="img/256802.JPG"
+          class="project-image mb-5"
+          alt="Award 08">
+
+        <div class="text-5xl">
+          🌟
+        </div>
+
+        <span
+          class="block
+                 text-purple-700
+                 text-sm
+                 mt-5">
+
+          ACHIEVEMENT 08
+
+        </span>
+
+        <h3 class="font-itim text-3xl mt-2">
+          เข้าร่วมการแข่งขัน
+        </h3>
+
+        <p class="text-slate-600 mt-3 leading-7">
+          การแข่งขันตอบปัญหาวิทยาศาสตร์ คณิตศาสตร์ และคอมพิวเตอร์ ระดับมัธยมศึกษาตอนต้น ปี2568
         </p>
 
       </div>
@@ -2743,7 +2495,7 @@
                p-9
                border-2
                border-white
-               shadow-[8px_8px_0_#E57B5D]">
+               shadow-[8px_8px_0_#D62828]">
 
 
         <div class="text-6xl">
@@ -2793,7 +2545,7 @@
                p-9
                border-2
                border-white
-               shadow-[8px_8px_0_#B9D9C3]">
+               shadow-[8px_8px_0_#FFD500]">
 
 
         <div class="text-6xl">
@@ -2953,8 +2705,9 @@
                  md:text-7xl
                  mt-3">
 
-          กวินทิพย์
+          กวินทิพย์   
           <span class="text-coral">
+            
             บุญมั่ง
           </span>
 
@@ -3010,7 +2763,7 @@
                    text-slate-500
                    mt-1">
 
-            your@email.com
+            kawinthip1308@gmail.com
 
           </p>
 
@@ -3035,7 +2788,7 @@
                    text-2xl
                    mt-3">
 
-            GitHub
+            instagram
 
           </p>
 
@@ -3044,7 +2797,7 @@
                    text-slate-600
                    mt-1">
 
-            yourusername
+            kawinthiq_11
 
           </p>
 
@@ -3067,7 +2820,7 @@
              text-slate-500">
 
       <p>
-        © 2026 Kawintip Boonmang
+        © 2026 Kawinthip Boonmang
       </p>
 
       <p>
